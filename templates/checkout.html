@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+    <div class="row">
+
+        <!-- Checkout Form -->
+        <div class="col-lg-7">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0">
+                        🛍 Checkout
+                    </h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit"
+                                class="btn btn-success w-100 mt-3">
+
+                            Place Order
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-5">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-dark text-white">
+
+                    <h4 class="mb-0">
+                        🛒 Order Summary
+                    </h4>
+
+                </div>
+
+                <div class="card-body">
+
+                    {% for item in cart_items %}
+
+                    <div class="mb-3">
+
+                        <div class="d-flex justify-content-between">
+
+                            <strong>
+                                {{ item.product.name }}
+                            </strong>
+
+                            <strong>
+                                ₹{{ item.subtotal }}
+                            </strong>
+
+                        </div>
+
+                        <small class="text-muted">
+
+                            Qty : {{ item.quantity }}
+
+                        </small>
+
+                    </div>
+
+                    <hr>
+
+                    {% empty %}
+
+                    <p>Your cart is empty.</p>
+
+                    {% endfor %}
+
+                    <div class="d-flex justify-content-between">
+
+                        <h5>Total</h5>
+
+                        <h5 class="text-success">
+
+                            ₹{{ total }}
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

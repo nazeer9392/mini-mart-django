@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Orders
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">
+        📦 My Orders
+    </h2>
+
+    {% if orders %}
+
+        {% for order in orders %}
+
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-header bg-success text-white">
+
+                <strong>
+
+                    Order #{{ order.id }}
+
+                </strong>
+
+                <span class="float-end">
+
+                    {{ order.created_at|date:"d M Y, h:i A" }}
+
+                </span>
+
+            </div>
+
+            <div class="card-body">
+
+                {% for item in order.items.all %}
+
+                <div class="d-flex justify-content-between mb-2">
+
+                    <div>
+
+                        <strong>{{ item.product_name }}</strong>
+
+                        <br>
+
+                        <small class="text-muted">
+
+                            Qty : {{ item.quantity }}
+
+                        </small>
+
+                    </div>
+
+                    <div>
+
+                        ₹{{ item.price }}
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                {% endfor %}
+
+                <div class="d-flex justify-content-between">
+
+                    <strong>Total</strong>
+
+                    <strong class="text-success">
+
+                        ₹{{ order.total_amount }}
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+    <div class="alert alert-info">
+
+        You haven't placed any orders yet.
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

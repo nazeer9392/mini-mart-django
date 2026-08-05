@@ -50,16 +50,16 @@ INSTALLED_APPS = [
     'cloudinary',
 ]
 
-# CLOUDINARY_STORAGE = {
-#     "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
-#     "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
-#     "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
-# }
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": "ehl0ky0k",
-    "API_KEY": "197284196949985",
-    "API_SECRET": "1vCHXh5ofFbEnxxWworwQn_Qgs4",
+    "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
 }
+# CLOUDINARY_STORAGE = {
+#     "CLOUD_NAME": "ehl0ky0k",
+#     "API_KEY": "197284196949985",
+#     "API_SECRET": "1vCHXh5ofFbEnxxWworwQn_Qgs4",
+# }
 
 STORAGES = {
     "default": {

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
@@ -7,7 +7,7 @@
 <div class="row">
 
     <div class="col-md-5">
-        <img src="{{ product.image.url }}"
+        <img src="{% static product.image %}" alt="{{ product.name }}"
              class="img-fluid rounded shadow">
     </div>
 
@@ -147,7 +147,7 @@
 
         <a href="{% url 'product_detail' item.id %}">
 
-            <img src="{{ item.image.url }}"
+            <img src="{% static item.image %}"
                  class="card-img-top product-img">
 
         </a>

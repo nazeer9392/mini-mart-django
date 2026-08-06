@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}
 Home
 {% endblock %}
@@ -190,7 +189,7 @@ Home
 
                         <a href="{% url 'product_detail' product.id %}">
 
-                        <img src="{{ product.image.url }}"
+                        <img src="{% static product.image %}" alt="{{ product.name }}"
                           class="card-img-top product-img">
 
                         </a>

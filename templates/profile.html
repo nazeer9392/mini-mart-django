@@ -31,7 +31,7 @@ My Profile
 
                         {% if user.profile.profile_image %}
 
-                        <img src="{{ user.profile.profile_image.url }}"
+                        <img src="{% static user.profile.profile_image %}"
                              class="rounded-circle shadow border border-3 border-success"
                              style="width:180px;height:180px;object-fit:cover;">
 

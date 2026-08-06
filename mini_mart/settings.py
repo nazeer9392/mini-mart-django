@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*14%19-s4%8((i90wi42t84!k*nm^z3c%-!rs=u5y#yvhasxz4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -46,29 +46,9 @@ INSTALLED_APPS = [
     'wishlist',
     'reviews',
     'dashboard',
-    'cloudinary_storage',
-    'cloudinary',
 ]
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
-    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
-}
-# CLOUDINARY_STORAGE = {
-#     "CLOUD_NAME": "ehl0ky0k",
-#     "API_KEY": "197284196949985",
-#     "API_SECRET": "1vCHXh5ofFbEnxxWworwQn_Qgs4",
-# }
 
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -155,12 +135,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
 
 
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

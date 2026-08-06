@@ -18,10 +18,10 @@ class Profile(models.Model):
         blank=True
     )
 
-    profile_image = models.ImageField(
-        upload_to="profiles/",
-        default="profiles/default.png"
-    )
+    profile_image = models.CharField(
+    max_length=255,
+    default="images/profiles/default.png"
+    ) 
 
     def __str__(self):
         return self.user.username
